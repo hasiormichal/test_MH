@@ -3,7 +3,10 @@
 #include <iomanip>
 #include <cstdlib>
 #include <ctime>
+#include "C:/SPB_Data/test_MH/JPO/zad4.h"
 using namespace std;
+
+
 
 
 int main(){
@@ -18,6 +21,11 @@ int main(){
         tablica[i] = (((rand()%101)*0.01)-0.5)*2;
         cout << tablica[i] << endl;
     }
+
+    double srednia,odchylenie;
+    FUNKCJA(tablica , x , &srednia , &odchylenie);
+    cout << "srednia wynosi = "<<srednia << "  odchylenie wynosi = " << odchylenie << endl;
+
     
     exit(0);
 }
