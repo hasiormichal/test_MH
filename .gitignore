@@ -1,4 +1,16 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Ignore .exe and .o files
 *.exe
 *.o
 test_ignore.md
 
+# Ignore vscode dir
+*/.vscode/*
+
+# Unignore all dirs
+!*/
