@@ -53,7 +53,7 @@ int main(){
 
 double x1 = 1.5;
 double y1 = 1.5;
-uint64_t ni=0,n=0;
+double ni=0,n=0;
 mt19937 gen(chrono::system_clock::now().time_since_epoch().count());
 uniform_real_distribution<double> distribution{-1.0,1.0};
 distribution(gen);
@@ -72,9 +72,9 @@ for (uint64_t i=0; i<1000000 ;i++){
        n++; 
     }
 }
-cout << ni << endl;
-cout << n << endl;
-cout << (ni*4)/n << endl;
+//cout << ni << endl;
+//cout << n << endl;
+cout << "pi ~ " << ((ni*4)/n) << endl;
 /*
 c.set_y(x1);
 double test =  c.get_y();
