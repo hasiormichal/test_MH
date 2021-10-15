@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
     double a,b,c,delta,x1,x2;
-    
+     
     cout << "Podaj wspolczynnik a:" << endl;
     cin >> a;
     cout << "Podaj wspolczynnik b:" << endl;
