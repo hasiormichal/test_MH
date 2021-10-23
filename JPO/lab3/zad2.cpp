@@ -9,25 +9,36 @@
 #include <fstream>
 using namespace std;
 
+string string_revers(const string nazwa){
+	string owiersz = nazwa;
+	for (int i = nazwa.length()-1; i >= 0; --i) {
+		owiersz[nazwa.length() - i-1] = nazwa[i];
+	}
+	return owiersz;
+}
+
 int main(int argc, char **argv) {
 	ifstream input_file;
 	ofstream output_file;
-	string wiersz { }, owiersz { };
+	string wiersz { };
 
 	input_file.open(
 			"./plik_tekstowy.txt");
 	if (input_file.good()) {
 		getline(input_file, wiersz);
 		input_file.close();
-		owiersz = wiersz;
-		cout << wiersz << endl; //TODO odwracanie w funkcji
-		for (int i = wiersz.length()-1; i >= 0; --i) {
-			owiersz[wiersz.length() - i-1] = wiersz[i];
-		}
+		cout << wiersz << endl; //testowe wyświetlanie 
+
+		string owiersz = string_revers(wiersz); //zamiana kolejności 
+		// wpisanie do pliku wyjsciowego
+		cout << owiersz << endl;
 		output_file.open(
 				"./plik_wyjsciowy.txt");
 		output_file << owiersz << endl;
 		output_file.close();
+	}
+	else{
+		cout << "bład otwaria pliku" << endl;
 	}
 }
 

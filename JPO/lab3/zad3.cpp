@@ -9,11 +9,12 @@
 
 using namespace std;
 
+
 int main(int argc, char **argv) {
 	string wiersz {
 			"Congratulations Mrs. <name>, you and Mr. <name> are lucky recipents of a trip for two to XXXXXXXXX. Your trip to XXX is already scheduled " };
 	size_t name_poz = 1;
-
+	cout << "before: " << wiersz << endl;
 	//find name
 	do {
 		name_poz = wiersz.find("<name>");
@@ -34,8 +35,14 @@ int main(int argc, char **argv) {
 
 	} while (name_poz != string::npos);
 	//make lucky unlucky
+	name_poz = wiersz.find("lucky");
+	wiersz.insert(name_poz,"un");
 
-	cout << wiersz << endl;
+	// dodawanie "in Deember"
+
+	wiersz.append("in December");
+
+	cout << "after: "<<wiersz << endl;
 	return 0;
 }
 
