@@ -1,0 +1,4 @@
+3
+debian-ps.pl 192.168.56.31
+debian-ps1.pl 192.168.56.32
+pluton.kt.agh.edu.pl 149.156.203.6
