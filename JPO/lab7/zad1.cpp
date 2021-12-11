@@ -81,7 +81,7 @@ int main(){
     person jeden;
     student dwa;
 
-    vector <class person> EiT;
+    vector <person * > EiT;
     for(int i=0 ; i<3 ; i++)
         EiT.push_back(jeden);
 

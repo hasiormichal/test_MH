@@ -1,4 +1,5 @@
 
+#include <cmath>
 
 void  FUNKCJA (double* x , int wielkosc, double *  srednia , double * odchylenie){
 
