@@ -1,4 +1,4 @@
-#include "class_car.h"
+//#include "class_car.h"
 #include <string>
 #include <iostream>
 
@@ -12,7 +12,7 @@ class car{
     public:
 
     void print(){
-        cout << "marka:" << marka << " model: " << model  <<" rocznik: " << rocznik << " cena (za dzien): " << cena << endl ;
+        cout << "marka: " << marka << "    model: " << model  <<"    rocznik: " << rocznik << "    cena (za dzien): " << cena << " zl"<<endl ;
     }
 
     car(string marka_ , string model_ , string rocznik_ , string cena_){
@@ -46,8 +46,8 @@ class rent_car :public car{
             cout << "cena z wyporzyczenia na " << x << " dni to: " << stof(get_cena())*x << " zl\n";
         }
         void print(){
-        car:print();
-        cout << "start " << time_to_start << "   stop " << time_to_end << endl; 
+        car::print();
+        cout << "start: " << time_to_start << "   stop: " << time_to_end << endl; 
     }
 
 
