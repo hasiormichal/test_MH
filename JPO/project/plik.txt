@@ -1,0 +1,2 @@
+marka: fiat$	model: fiesta$	rok: 2015   cena: 100$ 	od: 00.00.0000	do: 00.00.0000 
+marka: audi$	model: A3$	rok: 2012   cena: 200$ 	od: 12.12.2021 	do: 28.12.2021

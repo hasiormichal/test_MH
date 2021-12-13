@@ -1,0 +1,49 @@
+ 
+	wstepne założenia do projektu:
+
+klasa: samochód 
+	private:
+		wszelakie dane dotyczące samochodu
+	public: 
+
+	parametry(void) - wypisze parametry interesującego nas samochodu
+
+klasa : wyporzycz  dziedziczy po somochód
+	private:
+		data od kiedy wyporzyczony;  //narazie tylko jedno zaplanowane wyporzyczenie 
+		data do kiedy wyporzyczono;  //można się zastanowić jak zrobić terminarz na wyporzyczanie 
+		cena wyporzyczenia na dzień;
+		
+
+	public:
+
+------funkcje----
+	cena(int X) - wypisze cene rezerwacji na X dni
+	wyporzycz(X , Y) - *wyporzycz samochód od X do Y (zrobić odpowiedni format X, Y ) czyli ze stringa w formacie
+			   dd.mm.rrrr  wynieramy dzień, miesiąć ,rok.
+			   *odpowiedmio sprawdzi i dopisze odpowiednie dane w pliku.
+
+	zrezygnuj(void) - odpowiednio wyczyści dane w pliku
+	sprawdz(void) - sprawdza czy samochód jest dostępny  
+
+
+------------------------------------------------ koniec klas ---------------------------------------
+
+funkcje:
+
+
+void odczyt_z_pliku()  - odczyta wszytkie dane z pliku (rodzaje wszytkich samochodów i ich dostępność )
+
+void dodaj_samochód(  parametry ) - dodaje nowy samochód (odpowiedni wpis w pliku )
+
+
+
+
+
+
+
+--------------------------- struktura pliku ------------
+mój proponowany schemat
+
+marka: fiat	model: fiesta	rok: 2015 	od: 00.00.0000	do: 00.00.0000   //te zara to samochód jest dostępny 
+marka: audi	model: A3	rok: 2012 	od: 12.12.2021 	do: 28.12.2021   //przykład zarezerwowanego zamochodu
