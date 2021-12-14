@@ -1,8 +1,11 @@
-//#include "class_car.h"
-#include <string>
-#include <iostream>
 
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+#include <vector>
+//#include "class_car.h"
 using namespace std;
+
 class car{
     private:
         string marka;
@@ -26,6 +29,25 @@ class car{
     string get_cena(){
         return cena;
     }
+    string to_string(){
+        string buffor = "marka: ";
+
+        buffor.append(marka);
+        buffor.append("$");
+
+        buffor.append(" model: ");
+        buffor.append(model);
+        buffor.append("$");
+
+        buffor.append(" rok: ");
+        buffor.append(rocznik);
+
+        buffor.append(" cena: ");
+        buffor.append(cena);
+        buffor.append("$");
+
+        return buffor;
+    }
 
 
 };
@@ -46,9 +68,20 @@ class rent_car :public car{
             cout << "cena z wyporzyczenia na " << x << " dni to: " << stof(get_cena())*x << " zl\n";
         }
         void print(){
-        car::print();
-        cout << "start: " << time_to_start << "   stop: " << time_to_end << endl; 
-    }
+            car::print();
+            cout << "start: " << time_to_start << "   stop: " << time_to_end << endl; 
+        }
+        string to_string(){
+            string buffor = car::to_string();
+
+            buffor.append(" od: ");
+            buffor.append(time_to_start);
+
+            buffor.append(" do: ");
+            buffor.append(time_to_end);
+
+            return buffor;
+        }
 
 
 };
