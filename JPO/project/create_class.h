@@ -8,6 +8,6 @@
 
 using namespace std;
 //#include <vector>
-void create_class( vector <string> );
+vector <class rent_car> create_class( vector <string> );
 
 

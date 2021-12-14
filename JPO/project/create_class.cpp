@@ -9,7 +9,7 @@
 #include "create_class.h"
 using namespace std;
 
-void create_class(vector<string> obiekty){
+vector <class rent_car> create_class(vector<string> obiekty){
     string marka={};
     string model = {};
     string rocznik = {};
@@ -48,7 +48,5 @@ void create_class(vector<string> obiekty){
         samochody.push_back(rent_car(marka,model,rocznik,cena,start,koniec));
 
     }
-    samochody[0].print();
-    samochody[1].print();
-
+    return samochody;
 }
