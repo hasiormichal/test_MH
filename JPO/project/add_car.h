@@ -1,4 +1,4 @@
 using namespace std;
 //#include "class_car.cpp"
 
-void add_car(vector <class rent_car>&);
+int add_car(vector <class rent_car>& , vector <string>);

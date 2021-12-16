@@ -14,10 +14,10 @@ void save_data(vector <class rent_car> samochody){
         for(auto it=samochody.begin(); it !=samochody.end();  it++){
 
             if(auto itt=samochody.end() == it+1 ){
-                output_file << (*it).to_string();
+                output_file << (*it).class_to_string();
                 break;
             }
-            output_file << (*it).to_string()<< endl;
+            output_file << (*it).class_to_string()<< endl;
 
         }
         output_file.close();

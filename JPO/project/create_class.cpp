@@ -8,6 +8,7 @@
 using namespace std;
 
 vector <class rent_car> create_classes(vector<string> lista_samochodow){
+    string id = {};
     string marka={};
     string model = {};
     string rocznik = {};
@@ -22,7 +23,10 @@ vector <class rent_car> create_classes(vector<string> lista_samochodow){
 //
 // poniżej funkcja która powinna poprawnie odczytać do zmiennych odpiwenie dane
     for (auto obiekty: lista_samochodow ) { 
-        cout << obiekty<<endl;
+
+        poz1 = obiekty.find("id:");
+        id = obiekty.substr(poz1+id_length,4);
+
         poz1 = obiekty.find("marka:");
         poz2 = obiekty.find("$",0);
         marka = obiekty.substr(poz1+marka_lenght,poz2-(poz1+marka_lenght));
@@ -44,15 +48,16 @@ vector <class rent_car> create_classes(vector<string> lista_samochodow){
         poz1 = obiekty.find("do:");
         koniec = obiekty.substr(poz1+do_lenght,10);
 
-        samochody.push_back(rent_car(marka,model,rocznik,cena,start,koniec));
+        samochody.push_back(rent_car(id,marka,model,rocznik,cena,start,koniec));
 
     }
+
     return samochody;
 }
 
 
 class rent_car create_class(string obiekty){
-    
+    string id = {};
     string marka={};
     string model = {};
     string rocznik = {};
@@ -62,6 +67,10 @@ class rent_car create_class(string obiekty){
     size_t poz1;
     size_t poz2;
     //cout << obiekty << endl;
+
+    poz1 = obiekty.find("id:");
+    id = obiekty.substr(poz1+id_length,4);
+
     poz1 = obiekty.find("marka:");
     poz2 = obiekty.find("$",0);
     marka = obiekty.substr(poz1+marka_lenght,poz2-(poz1+marka_lenght));
@@ -83,6 +92,17 @@ class rent_car create_class(string obiekty){
     poz1 = obiekty.find("do:");
     koniec = obiekty.substr(poz1+do_lenght,10);
 
-    rent_car aaa(marka,model,rocznik,cena,start,koniec);
-    return aaa;
+    rent_car new_class(id,marka,model,rocznik,cena,start,koniec);
+    return new_class;
+}
+
+vector <string> create_all_id ( vector <class rent_car> class_vector) {
+    // to store all "id" 
+    // this vectro will bu used to check if user create new car with reserved id
+    vector <string> id_vector = {};
+
+    for(auto temporary: class_vector){
+        id_vector.push_back(temporary.get_id());
+    }
+    return id_vector;
 }
