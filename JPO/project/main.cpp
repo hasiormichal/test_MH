@@ -14,6 +14,7 @@
 #include "create_class.h"
 #include "add_car.h"
 #include "save_data.h"
+#include "check_time.h"
 
 using namespace std;
 
@@ -25,7 +26,9 @@ int main(){
    vector <string> all_id = create_all_id(samochody);
 
    time_t now;
+   time(&now);
    tm *ltm = localtime(&now);
+
 
    string komenda = {};
 
@@ -73,7 +76,7 @@ int main(){
 
       else if(komenda == "wyporzycz"){
          string time_start;
-         string time_stop;
+         string time_stop = to_string(ltm->tm_mday)+"."+to_string(1 + (ltm->tm_mon))+"."+to_string(1900+ (ltm->tm_year));
          string car_id;
 
          cout << "Podaj id wyporzyczanego samochodu\n";
@@ -82,8 +85,18 @@ int main(){
          cout << "podaj date od kiedy samochud bedzie wyporzyczony (w formacie dd.mm.rrr):\n";
          getline(cin,time_start);
 
+         cout << time_stop<<endl;
+
+         if(check_date(time_stop , time_start))
+            //bład
+            continue;
+   
          cout << "podaj date do kiedy bedzie wyporzyczony (w formacie dd.mm.rrr):\n";
          getline(cin,time_stop);
+
+         if(check_date(time_start , time_stop))
+            //bład
+            continue;
 
          for(auto it=samochody.begin(); it !=samochody.end();  it++){
             if((*it).get_id() == car_id){
