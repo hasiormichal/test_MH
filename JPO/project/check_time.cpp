@@ -45,5 +45,16 @@ int check_date(string date_start, string date_end){
 
 
 int check_calendary(string date){
-    return 0;
+    int buffor_month = stoi(date.substr(3,2));
+    int buffor_day = stoi(date.substr(0,2));
+
+    if(number_of_days[buffor_month-1] >= buffor_day){
+        //day's are "ok"
+        if(buffor_month <= 12){
+            //month's are "ok"
+            return 0;
+        }
+    }
+    cout << "podano nieprawidlowa dat\n";
+    return 1;
 }

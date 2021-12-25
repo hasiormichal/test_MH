@@ -11,36 +11,37 @@ using namespace std;
 int add_car(vector <class rent_car> &dodaj_do_klas , vector <string> all_id){
     //dodawanie będzie polegało na wyświetlaniu informacji i wpisywaniu po kolei informacji  
     string buffor = {};
-    cout << "podaj id nowego samochodu\n";
+    system("clear");
+    cout << "Enter the car ID in the format 'XXXX'\n";
     getline(cin,buffor);
 
     for(auto check_id: all_id){
         if(check_id == buffor){
-            return 1;
+            return 1; //return if ID already exist
         }
     }
 
     string cala_nazwa = "id: ";
     cala_nazwa.append(buffor);
 
-    cout <<  "Podaj marke\n";
+    cout <<  "Enter the make of a car\n";
     getline(cin,buffor);
     cala_nazwa.append(" marka: ");
     cala_nazwa.append(buffor);
     cala_nazwa.append("$");
 
-    cout << "podaj model \n";
+    cout << "Enter the model\n";
     getline(cin,buffor);
     cala_nazwa.append(" model: ");
     cala_nazwa.append(buffor);
     cala_nazwa.append("$");
 
-    cout << "podaj rocznik \n";
+    cout << "Enter year of production\n";
     getline(cin,buffor);
     cala_nazwa.append(" rok: ");
     cala_nazwa.append(buffor);
 
-    cout << "podaj cene \n";
+    cout << "Enter price for a one day \n";
     getline(cin,buffor);
     cala_nazwa.append(" cena: ");
     cala_nazwa.append(buffor);
