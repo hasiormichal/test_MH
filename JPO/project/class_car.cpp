@@ -38,24 +38,21 @@ class car{
         return id;
     }
     string class_to_string(){
-        string buffor = "id: ";
+        string buffor = "$id: ";
 
         buffor.append(id);
 
-        buffor.append(" marka: ");
+        buffor.append(" $marka: ");
         buffor.append(marka);
-        buffor.append("$");
 
-        buffor.append(" model: ");
+        buffor.append(" $model: ");
         buffor.append(model);
-        buffor.append("$");
 
-        buffor.append(" rok: ");
+        buffor.append(" $rok: ");
         buffor.append(rocznik);
 
-        buffor.append(" cena: ");
+        buffor.append(" $cena: ");
         buffor.append(cena);
-        buffor.append("$");
 
         return buffor;
     }
@@ -85,10 +82,10 @@ class rent_car :public car{
         string class_to_string(){
             string buffor = car::class_to_string();
 
-            buffor.append(" od: ");
+            buffor.append(" $od: ");
             buffor.append(time_to_start);
 
-            buffor.append(" do: ");
+            buffor.append(" $do: ");
             buffor.append(time_to_end);
 
             return buffor;

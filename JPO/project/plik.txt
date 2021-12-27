@@ -1,4 +1,2 @@
-id: 0000 marka: fiat$ model: fiesta$ rok: 2015 cena: 100$ od: 00.00.0000 do: 00.00.0000
-id: 0001 marka: fiat$ model: uno$ rok: 1999 cena: 50$ od: 00.00.0000 do: 00.00.0000
-id: 0002 marka: audi$ model: A3$ rok: 2012 cena: 200$ od: 00.00.0000 do: 00.00.0000
-id: 0003 marka: BMW$ model: e92$ rok: 2006 cena: 800$ od: 00.00.0000 do: 00.00.0000
+$id: 0000 $marka: fiat $model: fiesta $rok: 2015 $cena: 100 $od: 00.00.0000 $do: 00.00.0000
+$id: 0001 $marka: for $model: fokus $rok: 2016 $cena: 100 $od: 27.12.2021 $do: 28.04.2022

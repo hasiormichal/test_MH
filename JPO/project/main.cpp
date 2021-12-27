@@ -29,7 +29,7 @@ int main(){
    time(&now);
    tm *ltm = localtime(&now);
 
-   system("clear");
+   system("c");
    cout << "-----welcome in Car rant simulator-----\n";
    cout << "available commands:\n";
    cout << "add - add a new car\n";
@@ -37,34 +37,51 @@ int main(){
    cout << "rent\n";
    cout << "exit\n";
    cout << "help\n";
-   cout << "clear - clear terminal \n";
+   cout << "clear- clear terminal \n";
 
    string komenda = {};
 
    while(1){  //głowne pętle programu odpowiadająca za sterowanie
+      cout << "\n***** Enter the comend: *****\n";
       getline(cin,komenda);
-      cout << "enter the comend:\n";
       if(komenda == "help"){
          cout << "available commands:\n";
-         cout << "add - add a new car\n";
-         cout << "print \n";
-         cout << "rent\n";
-         cout << "exit\n";
-         cout << "help\n";
+         cout << "1) add - add a new car\n";
+         cout << "2) print \n";
+         cout << "3) rent\n";
+         cout << "4) exit\n";
+         cout << "6) help\n-----------------------\n";
       }
 
       else if(komenda == "add"){
-         if(add_car(samochody,all_id)){
-            cout << "This ID is already used\n";
+         int zmienna = add_car(samochody,all_id);
+         if(zmienna == 1){
+            cout << "The car has not been added\n";
+         }
+         else if(zmienna == 0){
+            cout << "Add a new car successfully\n";
          }
          else{
-            cout << "Add a new car successfully\n";
+            cout << "Error - after function 'add'\n";
          }
       }
 
-      else if(komenda == "print"){ // to do  additionam menu  print all cars, print car if given is ID 
-         system("clear");
-         cout << "all - print dinformation obout all cars\n";
+      else if(komenda == "print"){
+         system("cls");
+         cout << "1) all - print information about all cars\n";
+         cout << "2) enter car ID to print information about this car (use format XXXX)\n";
+         getline(cin,komenda);
+         if(komenda == "all"){
+            for(auto print_car: samochody){
+               print_car.print();
+            }
+         }
+         else{
+            for(auto id_car : samochody){
+               if(id_car.get_id() == komenda)
+                  id_car.print();
+            }
+         }
       }
 
 
@@ -77,6 +94,7 @@ int main(){
             cout << "Czy napewno y/n\n";
             cin >> wyjscie;
             if (wyjscie == "y"){
+               system("cls");
                save_data(samochody);
                return 0;
             }
@@ -96,7 +114,7 @@ int main(){
          string pomocnicza = "---";
 
          while ( pomocnicza != "exit"){
-            cout << "Podaj id wyporzyczanego samochodu\nlub 'exit' aby wyjsc \n";
+            cout << "Podaj ID wyporzyczanego samochodu\nlub 'exit' aby wyjsc \n";
             getline(cin,car_id);
             if(car_id == "exit")
                break;
@@ -126,7 +144,7 @@ int main(){
             for(auto it=samochody.begin(); it !=samochody.end();  it++){
                if((*it).get_id() == car_id){
                   (*it).wyporzycz(time_stop,time_start);
-
+                  (*it).oblicz_cene(number_of_days_in_between(time_start,time_stop));
                   //drugie pytanie??
                   //nwm dlaczego nie działa nadpisywanie gdy mamy for(auto asda:samochody)
                   break;

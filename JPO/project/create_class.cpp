@@ -24,28 +24,28 @@ vector <class rent_car> create_classes(vector<string> lista_samochodow){
 // poniżej funkcja która powinna poprawnie odczytać do zmiennych odpiwenie dane
     for (auto obiekty: lista_samochodow ) { 
 
-        poz1 = obiekty.find("id:");
+        poz1 = obiekty.find("$id:");
         id = obiekty.substr(poz1+id_length,4);
 
-        poz1 = obiekty.find("marka:");
-        poz2 = obiekty.find("$",0);
-        marka = obiekty.substr(poz1+marka_lenght,poz2-(poz1+marka_lenght));
+        poz1 = obiekty.find("$marka:");
+        poz2 = obiekty.find("$model",0);
+        marka = obiekty.substr(poz1+marka_lenght,poz2-(poz1+marka_lenght+1));
 
-        poz1 = obiekty.find("model:");
-        poz2 = obiekty.find("$",poz2+1);
-        model = obiekty.substr(poz1+model_lenght,poz2-(poz1+model_lenght));
+        poz1 = obiekty.find("$model:");
+        poz2 = obiekty.find("$rok",poz2+1);
+        model = obiekty.substr(poz1+model_lenght,poz2-(poz1+model_lenght+1));
 
-        poz1 = obiekty.find("rok:");
+        poz1 = obiekty.find("$rok:");
         rocznik = obiekty.substr(poz1+rok_lenght,4);
 
-        poz1 = obiekty.find("cena:");
-        poz2 = obiekty.find("$",poz2+1);
-        cena = obiekty.substr(poz1+cena_lenght,poz2-(poz1+cena_lenght));
+        poz1 = obiekty.find("$cena:");
+        poz2 = obiekty.find("$od",poz2+1);
+        cena = obiekty.substr(poz1+cena_lenght,poz2-(poz1+cena_lenght+1));
 
-        poz1 = obiekty.find("od:");
+        poz1 = obiekty.find("$od:");
         start = obiekty.substr(poz1+od_lenght,10);
 
-        poz1 = obiekty.find("do:");
+        poz1 = obiekty.find("$do:");
         koniec = obiekty.substr(poz1+do_lenght,10);
 
         samochody.push_back(rent_car(id,marka,model,rocznik,cena,start,koniec));
@@ -68,28 +68,28 @@ class rent_car create_class(string obiekty){
     size_t poz2;
     //cout << obiekty << endl;
 
-    poz1 = obiekty.find("id:");
+    poz1 = obiekty.find("$id:");
     id = obiekty.substr(poz1+id_length,4);
 
-    poz1 = obiekty.find("marka:");
-    poz2 = obiekty.find("$",0);
-    marka = obiekty.substr(poz1+marka_lenght,poz2-(poz1+marka_lenght));
+    poz1 = obiekty.find("$marka:");
+    poz2 = obiekty.find("$model",0);
+    marka = obiekty.substr(poz1+marka_lenght,poz2-(poz1+marka_lenght+1));
 
-    poz1 = obiekty.find("model:");
-    poz2 = obiekty.find("$",poz2+1);
-    model = obiekty.substr(poz1+model_lenght,poz2-(poz1+model_lenght));
+    poz1 = obiekty.find("$model:");
+    poz2 = obiekty.find("$rok",poz2+1);
+    model = obiekty.substr(poz1+model_lenght,poz2-(poz1+model_lenght+1));
 
-    poz1 = obiekty.find("rok:");
+    poz1 = obiekty.find("$rok:");
     rocznik = obiekty.substr(poz1+rok_lenght,4);
 
-    poz1 = obiekty.find("cena:");
-    poz2 = obiekty.find("$",poz2+1);
-    cena = obiekty.substr(poz1+cena_lenght,poz2-(poz1+cena_lenght));
+    poz1 = obiekty.find("$cena:");
+    poz2 = obiekty.find("$od",poz2+1);
+    cena = obiekty.substr(poz1+cena_lenght,poz2-(poz1+cena_lenght+1));
 
-    poz1 = obiekty.find("od:");
+    poz1 = obiekty.find("$od:");
     start = obiekty.substr(poz1+od_lenght,10);
 
-    poz1 = obiekty.find("do:");
+    poz1 = obiekty.find("$do:");
     koniec = obiekty.substr(poz1+do_lenght,10);
 
     rent_car new_class(id,marka,model,rocznik,cena,start,koniec);
@@ -98,7 +98,7 @@ class rent_car create_class(string obiekty){
 
 vector <string> create_all_id ( vector <class rent_car> class_vector) {
     // to store all "id" 
-    // this vectro will bu used to check if user create new car with reserved id
+    // this vectror will bu used to check if user create new car with reserved id
     vector <string> id_vector = {};
 
     for(auto temporary: class_vector){

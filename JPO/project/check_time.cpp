@@ -58,3 +58,21 @@ int check_calendary(string date){
     cout << "podano nieprawidlowa dat\n";
     return 1;
 }
+
+
+int number_of_days_in_between(string date_start, string date_end){
+    int buffor_month_start = stoi(date_start.substr(3,2));
+    int buffor_day_start = stoi(date_start.substr(0,2));
+    int buffor_year_start = stoi(date_start.substr(6,4));
+
+    int buffor_month_end = stoi(date_end.substr(3,2));
+    int buffor_day_end = stoi(date_end.substr(0,2));
+    int buffor_year_end = stoi(date_end.substr(6,4));
+
+
+    int days=0;
+    days = (buffor_year_end - buffor_year_start )*365;
+    days += (counting_of_days[buffor_month_end-1]+buffor_day_end) - (counting_of_days[buffor_month_start-1]+ buffor_day_start);
+    
+    return days;
+}
