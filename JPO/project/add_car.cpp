@@ -46,7 +46,7 @@ int add_car(vector <class rent_car> &dodaj_do_klas , vector <string> all_id){
 
 
 
-        cout <<  "Enter the make of a car\n";
+        cout <<  "Enter the make of a car (use only use lowercase letters)\n";
         getline(cin,buffor);
         if(buffor.empty()){
             cout<<"You can't enter empty make of car\n";
@@ -58,7 +58,7 @@ int add_car(vector <class rent_car> &dodaj_do_klas , vector <string> all_id){
 
 
 
-        cout << "Enter the model\n";
+        cout << "Enter the model (use only use lowercase letters) \n";
         getline(cin,buffor);
         if(buffor.empty()){
             cout<<"You can't enter empty model\n";

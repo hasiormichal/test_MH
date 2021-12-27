@@ -67,19 +67,93 @@ int main(){
       }
 
       else if(komenda == "print"){
-         system("cls");
-         cout << "1) all - print information about all cars\n";
-         cout << "2) enter car ID to print information about this car (use format XXXX)\n";
-         getline(cin,komenda);
-         if(komenda == "all"){
-            for(auto print_car: samochody){
-               print_car.print();
+            system("cls");
+            cout << "1) all - print information about all cars\n";
+            cout << "2) ID - enter car ID to print information about this car (use format XXXX)\n";
+            cout << "3) advance - detailed search\n";
+            cout << "4) exit - to exit\n";
+            cout << "5) help - to print commands \n";
+         while(1){
+            cout << "##### Enter the search/print command\n";
+            getline(cin,komenda);
+            if(komenda == "all"){
+               for(auto print_car: samochody){
+                  print_car.print();
+               }
             }
-         }
-         else{
-            for(auto id_car : samochody){
-               if(id_car.get_id() == komenda)
-                  id_car.print();
+            else if(komenda == "ID"){
+               cout << "Enter car ID\n";
+               getline(cin,komenda);
+               if(komenda.length() != 4){
+                  cout << "Bad ID format, use XXXX\n";
+                     continue;
+               }
+
+               if(check_string_number(komenda)){
+                  cout << "Bad ID, incorect char\n";
+                  continue;
+               }
+               for(auto id_car : samochody){
+                  if(id_car.get_id() == komenda)
+                     id_car.print();
+               }
+            }
+            else if(komenda == "advance"){
+               string buffor ={};
+               system("cls");
+               cout <<"##### Advance serching ##### \n";
+               cout <<"'mark' - to search make of car\n";
+               cout <<"'model' - to search car model\n";
+               cout <<"'year' - to search year of production\n";
+               cout <<"'price' - to search a price\n";
+               cout << "exit\n";
+               cout << "help\n";
+               while(1){
+                  cout << "##### Enter the advance search command\n";
+                  getline(cin,buffor);
+                  if(buffor == "mark"){
+                     cout << "enter the make of car (use only use lowercase letters)\n";
+                  }
+                  else if(buffor == "model"){
+                     cout << "enter the car model (use only use lowercase letters)\n";
+                  }
+                  else if(buffor == "year"){
+                     cout << "enter year of production\n" ;
+                  }
+                  else if(buffor == "price"){
+                     cout << "enter the price\n" ;
+                  }
+                  else if(buffor == "exit"){
+                     break;
+                  }
+                  else if(buffor == "help"){
+                     cout <<"##### Advance serching ##### \n";
+                     cout <<"'mark' - to search make of car\n";
+                     cout <<"'model' - to search car model\n";
+                     cout <<"'year' - to search year of production\n";
+                     cout <<"'price' - to search a price\n";
+                     cout << "exit\n";
+                     cout << "help\n";
+                  }
+                  else{
+                     cout <<"invalid komend\n";
+                     continue;
+                  }
+               }
+            }
+            else if(komenda == "exit"){
+               system("cls");
+               break;
+            }
+            else if(komenda == "help"){
+               cout << "1) all - print information about all cars\n";
+               cout << "2) ID - enter car ID to print information about this car (use format XXXX)\n";
+               cout << "3) advance - detailed search\n";
+               cout << "4) exit - to exit\n";
+               cout << "5) help - to print commands \n";
+            }
+            else{
+               cout << "incorect command\n";
             }
          }
       }
