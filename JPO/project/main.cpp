@@ -120,19 +120,69 @@ int main(){
                cout << "exit\n";
                cout << "help\n";
                while(1){
-                  cout << "##### Enter the advance search command\n";
+                  cout << "##### Enter the advance search key word\n";
+                  string search_for;
+                  bool car_does_not_exist = true;
                   getline(cin,buffor);
                   if(buffor == "mark"){
                      cout << "enter the make of car (use only use lowercase letters)\n";
+                     getline(cin,search_for);
+                     for(auto search_in_samochody: samochody){
+                        if(search_in_samochody.get_marka() == search_for){
+                           search_in_samochody.print();
+                           car_does_not_exist = false;
+                        }
+                     }
+                     if(car_does_not_exist)
+                        cout << "make of car: "<<search_for<< " does not exist in our liblary";
                   }
                   else if(buffor == "model"){
                      cout << "enter the car model (use only use lowercase letters)\n";
+                     getline(cin,search_for);
+                     for(auto search_in_samochody: samochody){
+                        if(search_in_samochody.get_model() == search_for){
+                           search_in_samochody.print();
+                           car_does_not_exist = false;
+                        }
+                     }
+                     if(car_does_not_exist)
+                        cout << "Car model: "<<search_for<< " does not exist in our liblary";
                   }
                   else if(buffor == "year"){
                      cout << "enter year of production\n" ;
+                     getline(cin,search_for);
+                     if(check_year(search_for))
+                        continue;
+                     for(auto search_in_samochody: samochody){
+                        if(search_in_samochody.get_rok() == search_for){
+                           search_in_samochody.print();
+                           car_does_not_exist = false;
+                        }
+                     }
+                     if(car_does_not_exist)
+                        cout << "car produced in the year: "<<search_for<< " does not exist in our liblary";
                   }
                   else if(buffor == "price"){
-                     cout << "enter the price\n" ;
+                     cout << "enter lower price\n" ;
+                     string lower_price;
+                     string high_price;
+                     getline(cin,lower_price);
+                     if(check_string_number(lower_price))
+                        continue;
+
+                     cout << "enter highest price\n" ; 
+                     getline(cin,high_price);
+                     if(check_string_number(high_price))
+                        continue;
+
+                     for(auto search_in_samochody: samochody){
+                        if(stoi(search_in_samochody.get_cena()) >= stoi(lower_price) && stoi(search_in_samochody.get_cena()) <= stoi(high_price)){
+                           search_in_samochody.print();
+                           car_does_not_exist = false;
+                        }
+                     }
+                     if(car_does_not_exist)
+                        cout << "Car with a price between the lowest and the highest ( "<< lower_price<<"-"<<high_price<< " ) does not exist in our liblary";
                   }
                   else if(buffor == "exit"){
                      break;

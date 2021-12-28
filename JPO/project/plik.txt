@@ -3,3 +3,4 @@ $id: 0002 $marka: fiat $model: abc $rok: 1999 $cena: 10 $od: 30.12.2021 $do: 31.
 $id: 0001 $marka: toyota $model: supra $rok: 1997 $cena: 500 $od: 00.00.0000 $do: 00.00.0000
 $id: 0003 $marka: subaru $model: brz $rok: 2013 $cena: 340 $od: 00.00.0000 $do: 00.00.0000
 $id: 0004 $marka: ford $model: fokus rs mk3 $rok: 2016 $cena: 300 $od: 00.00.0000 $do: 00.00.0000
+$id: 0005 $marka: ford $model: fokus $rok: 2021 $cena: 100 $od: 00.00.0000 $do: 00.00.0000

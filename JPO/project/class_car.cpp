@@ -56,8 +56,17 @@ class car{
 
         return buffor;
     }
+    string get_marka(){
+        return marka;
+    }
 
+    string get_model(){
+        return model;
+    }
 
+    string get_rok(){
+        return rocznik;
+    }
 };
 
 

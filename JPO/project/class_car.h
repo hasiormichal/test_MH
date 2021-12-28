@@ -1,6 +1,6 @@
 
-#include <string.h> 
-#include <strings.h> 
+//#include <string.h> 
+//#include <strings.h> 
 using namespace std;
 
 class car{
@@ -10,6 +10,9 @@ class car{
     string get_cena();
     string get_id();
     string class_to_string();
+    string get_marka();
+    string get_model();
+    string get_rok();
 };
 class rent_car{
     public:
