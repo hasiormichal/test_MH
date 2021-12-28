@@ -26,7 +26,13 @@ int add_car(){
         if(check_ID(buffor)){
             continue; // if user enter incorect ID 
         }
-
+        //check ID if it is used ----------------------------
+        for(auto check_id: all_id){
+            if(check_id == buffor){
+                cout << "This ID is already used\n";
+                return 1;
+            }
+        }
         string cala_nazwa = "id: ";
         cala_nazwa.append(buffor);
 
@@ -86,3 +92,46 @@ int add_car(){
     }    
 }
 
+int delete_car(){
+    string buffor = {};
+    system("cls");
+    while(1){
+        cout << "\n----- Enter the car ID to delet. format 'XXXX' in range 0000 - 9999 -----\n";
+        cout << "Enter 'exit' to abandon deleting the car \n";
+// ---------------------- enter ID ---------------------------------
+        getline(cin,buffor);
+        if(buffor == "exit"){
+            return 1;
+        }
+        if(check_ID(buffor)){
+            continue; // if user enter incorect ID 
+        }
+
+
+        for (auto itt = all_id.begin(); itt != all_id.end(); itt++ ) {
+            if((*itt) == buffor){
+                for (auto it = samochody.begin(); it != samochody.end(); it++ ) {
+                    if((*it).get_id() == buffor){
+                        cout << "Are you sure to delete this car:\n";
+                        (*it).print();
+                        cout << "\n   y/n ??? \n";
+                        char pomocnicza = getchar();
+                        if(pomocnicza == 'y'){
+                            samochody.erase(it);
+                            all_id.erase(itt);
+                            return 0;
+                        }
+                        else if(pomocnicza == 'n')
+                            return 1;
+                        else{
+                            cout << "Enter incorect character\n";
+                            return 1;
+                        }    
+                    }
+                }
+                cout << "error: ID exist in 'all_id' but not in 'samochody'\n";
+            }
+        }
+        cout << "This ID does not exist \n";
+    }
+}

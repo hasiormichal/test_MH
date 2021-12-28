@@ -1,3 +1,5 @@
 $id: 0000 $marka: fiat $model: fiesta $rok: 2015 $cena: 100 $od: 28.12.2021 $do: 20.09.3019
-$id: 0001 $marka: for $model: fokus $rok: 2016 $cena: 100 $od: 27.12.2021 $do: 28.04.2022
 $id: 0002 $marka: fiat $model: abc $rok: 1999 $cena: 10 $od: 30.12.2021 $do: 31.12.2021
+$id: 0001 $marka: toyota $model: supra $rok: 1997 $cena: 500 $od: 00.00.0000 $do: 00.00.0000
+$id: 0003 $marka: subaru $model: brz $rok: 2013 $cena: 340 $od: 00.00.0000 $do: 00.00.0000
+$id: 0004 $marka: ford $model: fokus rs mk3 $rok: 2016 $cena: 300 $od: 00.00.0000 $do: 00.00.0000

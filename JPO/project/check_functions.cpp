@@ -17,13 +17,6 @@ int check_ID(string liczba){
     if(check_string_number(liczba))
         return 1;
 
-//check ID if it is used ----------------------------
-    for(auto check_id: all_id){
-        if(check_id == liczba){
-            cout << "This ID is already used\n";
-            return 1;
-        }
-    }
     return 0; 
 }
 

@@ -70,7 +70,13 @@ int main(){
             cout << "Error - after function 'add'\n";
          }
       }
-
+      else if(komenda == "delete"){
+         if(delete_car()){
+            cout << "the car wasn't removed\n";
+            continue;
+         }
+         cout <<  "the car has been removed\n";
+      }
       else if(komenda == "print"){
             system("cls");
             cout << "1) all - print information about all cars\n";
