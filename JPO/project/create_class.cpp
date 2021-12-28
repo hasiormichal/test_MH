@@ -3,11 +3,12 @@
 #include <fstream>
 #include <vector>
 
-#include "class_car.cpp"  //nwm co z tym includem czy może byc
+//#include "class_car.cpp"  //nwm co z tym includem czy może byc
 #include "create_class.h"
+#include "global.h"
 using namespace std;
 
-vector <class rent_car> create_classes(vector<string> lista_samochodow){
+void create_classes(vector<string> lista_samochodow){
     string id = {};
     string marka={};
     string model = {};
@@ -18,7 +19,6 @@ vector <class rent_car> create_classes(vector<string> lista_samochodow){
     size_t poz1;
     size_t poz2;
 
-    vector <class rent_car> samochody;
 // todo: zastanowić się czy jest sens wpisywanie tego jako obiek klasy ?? jak wiedzić potem w programie że chcemy odwoalć się do danego elemntu klasy
 //
 // poniżej funkcja która powinna poprawnie odczytać do zmiennych odpiwenie dane
@@ -52,7 +52,6 @@ vector <class rent_car> create_classes(vector<string> lista_samochodow){
 
     }
 
-    return samochody;
 }
 
 
@@ -96,13 +95,11 @@ class rent_car create_class(string obiekty){
     return new_class;
 }
 
-vector <string> create_all_id ( vector <class rent_car> class_vector) {
+void create_all_id () {
     // to store all "id" 
     // this vectror will bu used to check if user create new car with reserved id
-    vector <string> id_vector = {};
 
-    for(auto temporary: class_vector){
-        id_vector.push_back(temporary.get_id());
+    for(auto temporary: samochody){
+        all_id.push_back(temporary.get_id());
     }
-    return id_vector;
 }

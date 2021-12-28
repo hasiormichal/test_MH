@@ -3,10 +3,11 @@
 #include <fstream>
 #include <vector>
 
-#include "class_car.cpp"
+//#include "class_car.cpp"
 #include "save_data.h"
+#include "global.h"
 
-void save_data(vector <class rent_car> samochody){
+void save_data(){
 
     ofstream output_file;
     output_file.open("plik.txt");

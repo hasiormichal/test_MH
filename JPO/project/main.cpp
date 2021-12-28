@@ -9,27 +9,32 @@
 #include <ctime>
 
 
-#include "class_car.cpp"
+//#include "class_car.cpp"
 #include "read_from_file.h"
 #include "create_class.h"
 #include "add_car.h"
 #include "save_data.h"
 #include "check_time.h"
+#include "global.h"
+#include "check_functions.h"
 
 using namespace std;
+
+vector <class rent_car> samochody;
+vector <string> all_id;
+
 
 int main(){
    vector <string> odczytany_plik;
    odczytany_plik = read_from_file("plik.txt");
-   vector <class rent_car> samochody;
-   samochody = create_classes(odczytany_plik);
-   vector <string> all_id = create_all_id(samochody);
+   create_classes(odczytany_plik);
+   create_all_id();
 
    time_t now;
    time(&now);
    tm *ltm = localtime(&now);
 
-   system("c");
+   system("cls");
    cout << "-----welcome in Car rant simulator-----\n";
    cout << "available commands:\n";
    cout << "add - add a new car\n";
@@ -54,7 +59,7 @@ int main(){
       }
 
       else if(komenda == "add"){
-         int zmienna = add_car(samochody,all_id);
+         int zmienna = add_car();
          if(zmienna == 1){
             cout << "The car has not been added\n";
          }
@@ -169,7 +174,7 @@ int main(){
             cin >> wyjscie;
             if (wyjscie == "y"){
                system("cls");
-               save_data(samochody);
+               save_data();
                return 0;
             }
             else if(wyjscie == "n"){

@@ -9,7 +9,7 @@
 
 using namespace std;
 //#include <vector>
-vector <class rent_car> create_classes( vector <string> );
+void create_classes( vector <string> );
 class rent_car create_class(string);
-vector <string> create_all_id (vector <class rent_car>);
+void create_all_id ();
 
