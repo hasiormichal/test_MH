@@ -19,7 +19,7 @@ class car{
     public:
 
     void print(){
-        cout << "id: "<< id << "    marka: " << marka << "    model: " << model  <<"    rocznik: " << rocznik << "    cena (za dzien): " << cena << " zl"<<endl ;
+        cout << "ID: "<< id << "    The car brand: " << marka << "    Model: " << model  <<"    Year of production: " << rocznik << "    price (per day): " << cena << " zl"<<endl ;
     }
 
     car(string id_,string marka_ , string model_ , string rocznik_ , string cena_){
@@ -82,11 +82,11 @@ class rent_car :public car{
         }
 
         void oblicz_cene(int x){ //wylicz cene samochodu za wyporzyczenie na X dni
-            cout << "cena z wyporzyczenia na " << x << " dni to: " << stof(get_cena())*x << " zl\n";
+            cout << "Rental price for " << x << " days: " << stof(get_cena())*x << " zl\n";
         }
         void print(){
             car::print();
-            cout << "start: " << time_to_start << "   stop: " << time_to_end << endl; 
+            cout << "start of rent: " << time_to_start << "   end of rent: " << time_to_end << endl; 
         }
         string class_to_string(){
             string buffor = car::class_to_string();
@@ -109,16 +109,21 @@ class rent_car :public car{
             if( time_to_end == "00.00.0000"){
                 time_to_end = data;
                 time_to_start = data_start;
-                cout << "wyporzyczono samochd:\n";
+                cout << "Your car has been rented:\n";
                 print();
                 return 0;
                  //cout << "od dnia: "<<time_to_start<< "    do dnia: "<<time_to_end<<endl;
             }
             else{
-                cout << "wybrany pojazd jest juz zarezerwowany na okres\n";
-                cout << "od dnia: "<<time_to_start<< "    do dnia: "<<time_to_end<<endl;
+                cout << "The selected car is already reserved for a period\n";
+                cout << "start of rent: "<<time_to_start<< "   end of rent: "<<time_to_end<<endl;
                 return 1;
             }
+        }
+
+        void set_date(){
+            time_to_end = "00.00.0000";
+            time_to_start = "00.00.0000";
         }
 
 

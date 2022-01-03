@@ -22,4 +22,5 @@ class rent_car{
     void set_stop_time(string);
     string class_to_string();
     int wyporzycz(string , string);
+    void set_date();
 };

@@ -8,6 +8,10 @@
 
 using namespace std;
 
+const int number_of_days[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+const int counting_of_days[12] = {0,31,59,90,120,151,181,212,243,273,304,334};
+
+
 int check_date(string date_start, string date_end){
 
     int buffor = stoi(date_start.substr(6,4));
@@ -20,7 +24,7 @@ int check_date(string date_start, string date_end){
             int buffor = stoi(date_start.substr(0,2));
             int buffor_stop = stoi(date_end.substr(0,2)); 
             if( buffor > buffor_stop ){
-                cout << "zla data\n";
+                cout << "wrong date, a past date cannot be given\n";
                 return 1;
             }
             else
@@ -28,14 +32,14 @@ int check_date(string date_start, string date_end){
             
         }
         else if( buffor > buffor_stop ){
-            cout << "zla data\n";
+            cout << "wrong date, a past date cannot be given\n";
             return 1;
         }
         else    
             return 0;   
         }
     else if( buffor > buffor_stop ){
-        cout << "zla data\n";
+        cout << "wrong date,a past date cannot be given\n";
         return 1;
     }
     else    
@@ -55,7 +59,7 @@ int check_calendary(string date){
             return 0;
         }
     }
-    cout << "podano nieprawidlowa dat\n";
+    cout << "such date " << date <<" does not exist \n";
     return 1;
 }
 

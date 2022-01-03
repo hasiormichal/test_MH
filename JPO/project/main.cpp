@@ -17,6 +17,7 @@
 #include "check_time.h"
 #include "global.h"
 #include "check_functions.h"
+#include "car_rent.h"
 
 using namespace std;
 
@@ -47,15 +48,18 @@ int main(){
    string komenda = {};
 
    while(1){  //głowne pętle programu odpowiadająca za sterowanie
-      cout << "\n***** Enter the comend: *****\n";
+      cout << "\n********** Enter the comend: **********\n";
       getline(cin,komenda);
       if(komenda == "help"){
+         system("cls");
          cout << "available commands:\n";
          cout << "1) add - add a new car\n";
-         cout << "2) print \n";
-         cout << "3) rent\n";
-         cout << "4) exit\n";
-         cout << "6) help\n-----------------------\n";
+         cout << "2) delete' - to delete a car\n";
+         cout << "3) print - print information about cars\n";
+         cout << "4) rent\n";
+         cout << "5) exit\n";
+         cout << "6) clear- clear terminal \n";
+         cout << "7) help\n**************************************\n";
       }
 
       else if(komenda == "add"){
@@ -79,20 +83,24 @@ int main(){
       }
       else if(komenda == "print"){
             system("cls");
+            cout << "welcome to the display function \n";
+            cout << "Enter one of the command below and follow the instructions \n";
             cout << "1) all - print information about all cars\n";
             cout << "2) ID - enter car ID to print information about this car (use format XXXX)\n";
             cout << "3) advance - detailed search\n";
             cout << "4) exit - to exit\n";
             cout << "5) help - to print commands \n";
          while(1){
-            cout << "##### Enter the search/print command\n";
+            cout << "\n######## Enter the search/print command ########\n";
             getline(cin,komenda);
             if(komenda == "all"){
+               system("cls");
                for(auto print_car: samochody){
                   print_car.print();
                }
             }
             else if(komenda == "ID"){
+               system("cls");
                cout << "Enter car ID\n";
                getline(cin,komenda);
                if(komenda.length() != 4){
@@ -113,18 +121,19 @@ int main(){
                string buffor ={};
                system("cls");
                cout <<"##### Advance serching ##### \n";
-               cout <<"'mark' - to search make of car\n";
-               cout <<"'model' - to search car model\n";
-               cout <<"'year' - to search year of production\n";
-               cout <<"'price' - to search a price\n";
-               cout << "exit\n";
-               cout << "help\n";
+               cout <<"1) mark - to search make of car\n";
+               cout <<"2) model - to search car model\n";
+               cout <<"3) year - to search year of production\n";
+               cout <<"4) price - to search a price\n";
+               cout <<"5) exit\n";
+               cout <<"6) help\n";
                while(1){
-                  cout << "##### Enter the advance search key word\n";
+                  cout << "######## Enter the advance search key word ########\n";
                   string search_for;
                   bool car_does_not_exist = true;
                   getline(cin,buffor);
                   if(buffor == "mark"){
+                     system("cls");
                      cout << "enter the make of car (use only use lowercase letters)\n";
                      getline(cin,search_for);
                      for(auto search_in_samochody: samochody){
@@ -137,6 +146,7 @@ int main(){
                         cout << "make of car: "<<search_for<< " does not exist in our liblary";
                   }
                   else if(buffor == "model"){
+                     system("cls");
                      cout << "enter the car model (use only use lowercase letters)\n";
                      getline(cin,search_for);
                      for(auto search_in_samochody: samochody){
@@ -149,6 +159,7 @@ int main(){
                         cout << "Car model: "<<search_for<< " does not exist in our liblary";
                   }
                   else if(buffor == "year"){
+                     system("cls");
                      cout << "enter year of production\n" ;
                      getline(cin,search_for);
                      if(check_year(search_for))
@@ -163,6 +174,7 @@ int main(){
                         cout << "car produced in the year: "<<search_for<< " does not exist in our liblary";
                   }
                   else if(buffor == "price"){
+                     system("cls");
                      cout << "enter lower price\n" ;
                      string lower_price;
                      string high_price;
@@ -185,16 +197,18 @@ int main(){
                         cout << "Car with a price between the lowest and the highest ( "<< lower_price<<"-"<<high_price<< " ) does not exist in our liblary";
                   }
                   else if(buffor == "exit"){
+                     system("cls");
                      break;
                   }
                   else if(buffor == "help"){
+                     system("cls");
                      cout <<"##### Advance serching ##### \n";
-                     cout <<"'mark' - to search make of car\n";
-                     cout <<"'model' - to search car model\n";
-                     cout <<"'year' - to search year of production\n";
-                     cout <<"'price' - to search a price\n";
-                     cout << "exit\n";
-                     cout << "help\n";
+                     cout <<"1) mark - to search make of car\n";
+                     cout <<"2) model - to search car model\n";
+                     cout <<"3) year - to search year of production\n";
+                     cout <<"4) price - to search a price\n";
+                     cout <<"5) exit\n";
+                     cout <<"6) help\n";
                   }
                   else{
                      cout <<"invalid komend\n";
@@ -207,11 +221,14 @@ int main(){
                break;
             }
             else if(komenda == "help"){
-               cout << "1) all - print information about all cars\n";
-               cout << "2) ID - enter car ID to print information about this car (use format XXXX)\n";
-               cout << "3) advance - detailed search\n";
-               cout << "4) exit - to exit\n";
-               cout << "5) help - to print commands \n";
+            system("cls");
+            cout << "welcome to the display function \n";
+            cout << "Enter one of the command below and follow the instructions \n";
+            cout << "1) all - print information about all cars\n";
+            cout << "2) ID - enter car ID to print information about this car (use format XXXX)\n";
+            cout << "3) advance - detailed search\n";
+            cout << "4) exit - to exit\n";
+            cout << "5) help - to print commands \n";
             }
             else{
                cout << "incorect command\n";
@@ -226,7 +243,7 @@ int main(){
       
          string wyjscie;
          while (1){
-            cout << "Czy napewno y/n\n";
+            cout << "Are you sure y/n\n";
             cin >> wyjscie;
             if (wyjscie == "y"){
                system("cls");
@@ -243,53 +260,15 @@ int main(){
       }
 
       else if(komenda == "rent"){
-         string time_start;
          string time_stop = to_string(ltm->tm_mday)+"."+to_string(1 + (ltm->tm_mon))+"."+to_string(1900+ (ltm->tm_year));
-         string car_id;
-         string pomocnicza = "---";
-
-         while ( pomocnicza != "exit"){
-            cout << "Podaj ID wyporzyczanego samochodu\nlub 'exit' aby wyjsc \n";
-            getline(cin,car_id);
-            if(car_id == "exit")
-               break;
-            if( car_id.length() != 4){
-               cout << "zle wspisane id. powinno byc w formacie -> XXXX\nlub 'exit' aby wyjsc";
-               continue;
-            }
-
-
-            cout << "podaj date od kiedy samochud bedzie wyporzyczony (w formacie dd.mm.rrr):\nlub 'exit' aby wyjsc\n";
-            getline(cin,time_start);
-            if(time_start == "exit")
-               break;
-            if(check_calendary(time_start))
-               continue; //bład -> wpisana date jest nie istnieje 
-            if(check_date(time_stop , time_start))
-               continue;  //wystąpił bład
-      
-            cout << "podaj date do kiedy bedzie wyporzyczony (w formacie dd.mm.rrr):\nlub 'exit' aby wyjsc\n";
-            getline(cin,time_stop);
-            if(time_stop == "exit");
-            if(check_calendary(time_start))
-               continue; //bład -> wpisana date jest nie istnieje 
-            if(check_date(time_start , time_stop))
-               continue;
-
-            for(auto it=samochody.begin(); it !=samochody.end();  it++){
-               if((*it).get_id() == car_id){
-                  (*it).wyporzycz(time_stop,time_start);
-                  (*it).oblicz_cene(number_of_days_in_between(time_start,time_stop));
-                  //drugie pytanie??
-                  //nwm dlaczego nie działa nadpisywanie gdy mamy for(auto asda:samochody)
-                  break;
-               }
-               
-            }
-            break;
+         if(rent_function(time_stop)){
+            cout <<"unexpected error in function 'rent'\n";
          }
       }
-
+      else if(komenda == "clear"){
+         system("cls");
+         continue;
+      }
       else{
          cout << "incorect comend\n";
       }
