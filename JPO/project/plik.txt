@@ -5,3 +5,4 @@ $id: 0003 $marka: subaru $model: brz $rok: 2013 $cena: 340 $od: 00.00.0000 $do: 
 $id: 0004 $marka: ford $model: fokus rs mk3 $rok: 2016 $cena: 300 $od: 00.00.0000 $do: 00.00.0000
 $id: 0005 $marka: ford $model: fokus $rok: 2021 $cena: 100 $od: 00.00.0000 $do: 00.00.0000
 $id: 1001 $marka: bmw $model: e39 $rok: 2001 $cena: 100 $od: 00.00.0000 $do: 00.00.0000
+$id: 0006 $marka: audi $model: a3 $rok: 2014 $cena: 150 $od: 00.00.0000 $do: 00.00.0000
